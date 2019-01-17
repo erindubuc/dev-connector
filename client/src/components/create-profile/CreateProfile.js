@@ -32,7 +32,7 @@ class CreateProfile extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentWillRecieveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
@@ -186,14 +186,6 @@ class CreateProfile extends Component {
                   info="City or city & state suggested (eg. Providence, RI)"
                 />
                 <TextFieldGroup
-                  placeholder="* Profile Handle"
-                  name="handle"
-                  value={this.state.handle}
-                  onChange={this.onChange}
-                  error={errors.handle}
-                  info="A unique handle for your profile URL. Your full name, company name, nickname, etc. "
-                />
-                <TextFieldGroup
                   placeholder="* Skills"
                   name="skills"
                   value={this.state.skills}
@@ -254,7 +246,7 @@ CreateProfile.propTypes = {
 
 const mapStateToProps = state => ({
   profile: state.profile,
-  erros: state.errors
+  errors: state.errors
 });
 
 export default connect(mapStateToProps, { createProfile })(withRouter(CreateProfile));

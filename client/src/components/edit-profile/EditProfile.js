@@ -37,7 +37,7 @@ class CreateProfile extends Component {
     this.props.getCurrentProfile();
   }
 
-  componentWillRecieveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
@@ -106,6 +106,8 @@ class CreateProfile extends Component {
   }
 
   render() {
+    console.log(this.state);
+
     const { errors, displaySocialInputs } = this.state;
 
     let socialInputs;
@@ -225,14 +227,6 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.location}
                   info="City or city & state suggested (eg. Providence, RI)"
-                />
-                <TextFieldGroup
-                  placeholder="* Profile Handle"
-                  name="handle"
-                  value={this.state.handle}
-                  onChange={this.onChange}
-                  error={errors.handle}
-                  info="A unique handle for your profile URL. Your full name, company name, nickname, etc. "
                 />
                 <TextFieldGroup
                   placeholder="* Skills"
